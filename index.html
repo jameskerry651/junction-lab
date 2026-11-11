@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#faf8f3" />
+    <meta
+      name="description"
+      content="Junction Lab — James 的个人博客，记录工程实践、算法与数据、系统与网络、论文研读与生活。"
+    />
+    <title>Junction Lab</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div
+      class="reading-progress"
+      id="readingProgress"
+      hidden
+      aria-hidden="true"
+    ></div>
+    <div
+      class="reading-progress"
+      id="readingProgress"
+      hidden
+      aria-hidden="true"
+    ></div>
+    <a class="skip-link" href="#main">跳到正文</a>
+
+    <header class="site-head">
+      <div class="wrap">
+        <div class="head-top">
+          <a class="brand" href="#/" aria-label="Junction Lab 首页">
+            <span class="brand-name">Junction <em>Lab</em></span>
+            <span class="brand-sub">学术与技术记录</span>
+          </a>
+
+          <div class="head-search" id="searchShell" role="search">
+            <label class="sr-only" for="searchInput">搜索文章</label>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.6"
+              aria-hidden="true"
+            >
+              <circle cx="10.5" cy="10.5" r="6.5" />
+              <path d="m15.5 15.5 4.5 4.5" stroke-linecap="round" />
+            </svg>
+            <input
+              id="searchInput"
+              type="search"
+              placeholder="搜索标题、标签或摘要"
+              autocomplete="off"
+              spellcheck="false"
+              title="按 / 聚焦，Esc 清空"
+              aria-describedby="searchHints searchCount"
+            />
+            <button class="search-clear" id="searchClear" type="button" hidden>
+              清除
+            </button>
+          </div>
+
+          <div class="theme-switch" role="group" aria-label="配色模式">
+            <button type="button" data-theme-set="light" aria-pressed="false">
+              日间
+            </button>
+            <button type="button" data-theme-set="dark" aria-pressed="false">
+              夜间
+            </button>
+          </div>
+        </div>
+
+        <nav class="site-nav" aria-label="站点导航">
+          <a href="#/" data-nav="timeline">时间轴</a>
+          <span class="nav-sep" aria-hidden="true"></span>
+          <a href="#/categories" data-nav="categories">分类</a>
+          <span class="nav-sep" aria-hidden="true"></span>
+          <a href="#/about" data-nav="about">关于</a>
+          <span class="nav-sep" aria-hidden="true"></span>
+          <a href="/admin/" data-nav="admin" class="nav-admin">管理 ↗</a>
+          <span
+            class="nav-count"
+            id="searchCount"
+            role="status"
+            aria-live="polite"
+          ></span>
+        </nav>
+        <span class="sr-only" id="searchHints"
+          >按斜杠键聚焦搜索框，按 Esc 清空</span
+        >
+      </div>
+    </header>
+
+    <main class="wrap" id="main">
+      <!-- 时间轴 / 分类时间轴 -->
+      <section data-page="listing" id="listingPage" aria-label="文章列表">
+        <header class="listing-head">
+          <div>
+            <p class="kicker" id="listingKicker">Archive · 2024—2026</p>
+            <h1 id="listingTitle">时间轴</h1>
+            <p class="listing-desc" id="listingDesc"></p>
+          </div>
+          <div class="listing-meta" id="listingMeta"></div>
+        </header>
+
+        <div class="timeline" id="timeline"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <p>没有找到匹配的文章。</p>
+          <button type="button" id="emptyClear">清除搜索</button>
+        </div>
+      </section>
+
+      <!-- 全部分类索引 -->
+      <section
+        data-page="categories"
+        id="categoriesPage"
+        aria-label="全部分类"
+        hidden
+      >
+        <header class="listing-head">
+          <div>
+            <p class="kicker" id="catKicker">Index · Categories</p>
+            <h1 id="catTitle">分类</h1>
+            <p class="listing-desc" id="catDesc">
+              按类别归档的全部文章。每个分类标题可以进入该类的时间轴，日期与标题逐行排列。
+            </p>
+          </div>
+          <div class="listing-meta" id="catMeta"></div>
+        </header>
+
+        <div class="category-archive" id="categoryArchive"></div>
+
+        <div class="empty-state" id="catEmpty" hidden>
+          <p>没有找到匹配的文章。</p>
+          <button type="button" id="catEmptyClear">清除搜索</button>
+        </div>
+      </section>
+
+      <!-- 关于本站 -->
+      <section data-page="about" id="aboutPage" aria-label="关于本站" hidden>
+        <div class="about">
+          <p class="kicker">About · Colophon</p>
+          <h1>专注工程实践、学术研读与知识沉淀。</h1>
+          <p class="lede">
+            Junction Lab
+            是一个专注于长期价值与深度思考的技术与学术博客。内容涵盖强化学习与机器人、系统与网络、算法设计，以及文献研读与日常实践记录。不追逐热点与推荐信息流，只维护一条清晰严谨、支持多维检索与分类查阅的时间轴。
+          </p>
+          <p>
+            这里坚持极简纯粹的阅读体验，无算法推荐、无干扰弹窗。文章以学术标准编排与校对，KaTeX
+            公式与代码块原生适配，保持内容的长青可读性。
+          </p>
+
+          <div class="about-grid">
+            <div>
+              <h2>收录范围</h2>
+              <ul class="topic-list" id="topicList"></ul>
+
+              <h2>本站约定</h2>
+              <ol class="principles">
+                <li>公开与私密分离，草稿和私密文章不进入任何列表。</li>
+                <li>文章地址由编号决定，不随文件名或分类调整而失效。</li>
+                <li>不使用第三方追踪脚本；配色偏好只保存在当前浏览器。</li>
+                <li>尊重系统的「减少动态效果」设置，保持干净纯粹的交互。</li>
+              </ol>
+            </div>
+
+            <aside class="facts" aria-label="站点信息">
+              <dl>
+                <div>
+                  <dt>作者</dt>
+                  <dd>James</dd>
+                </div>
+                <div>
+                  <dt>方向</dt>
+                  <dd>RL / 机器人 / 系统</dd>
+                </div>
+                <div>
+                  <dt>收录</dt>
+                  <dd id="factPostCount">-- 篇</dd>
+                </div>
+                <div>
+                  <dt>分类</dt>
+                  <dd id="factCatCount">-- 类</dd>
+                </div>
+                <div>
+                  <dt>更新</dt>
+                  <dd id="factLatestDate">----.--.--</dd>
+                </div>
+              </dl>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- 正文阅读页 -->
+      <section data-page="post" id="postPage" aria-label="文章阅读" hidden>
+        <article class="post">
+          <p class="back-row"><a href="#/" id="backLink">← 返回时间轴</a></p>
+
+          <div class="paper-layout">
+            <div class="paper-gutter-left" aria-hidden="true"></div>
+
+            <main class="paper-center">
+              <header class="paper-head">
+                <p class="paper-kicker">
+                  <span id="postCategory"></span><span class="dot">/</span>
+                  <span id="postDate"></span><span class="dot">/</span>
+                  <span id="postId"></span>
+                </p>
+                <h1 id="postTitle"></h1>
+                <div class="byline">
+                  <strong id="postAuthor">James</strong>
+                  <span id="postRead"></span>
+                  <span id="postUpdated"></span>
+                </div>
+                <div class="post-tags" id="postTags"></div>
+              </header>
+
+              <div class="article-body" id="postBody"></div>
+            </main>
+
+            <aside class="toc" aria-label="文章目录">
+              <div class="toc-inner">
+                <p class="toc-label">Contents</p>
+                <ol id="tocList"></ol>
+              </div>
+            </aside>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-foot">
+      <p>Junction Lab · 学术与技术记录</p>
+      <nav class="study-switcher" aria-label="底部导航">
+        <a href="#/">时间轴</a>
+        <a href="#/categories">分类</a>
+        <a href="#/about">关于</a>
+        <a href="/admin/">后台管理 ↗</a>
+      </nav>
+    </footer>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

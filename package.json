@@ -1,0 +1,37 @@
+{
+  "name": "junction-lab",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "predev": "node scripts/editor-assets.mjs && node scripts/export-records.mjs",
+    "dev": "vite --host 127.0.0.1",
+    "prebuild": "node scripts/editor-assets.mjs && node scripts/export-records.mjs",
+    "build": "tsc && vite build",
+    "format": "prettier --write src scripts index.html package.json tsconfig.json",
+    "preview": "vite preview --host 127.0.0.1",
+    "content:import": "node scripts/migrate-vanblog.mjs",
+    "content:build": "node scripts/export-records.mjs",
+    "start": "node server/index.mjs",
+    "test:admin": "node --test server/*.test.mjs",
+    "test:ai": "node --test server/ai.test.mjs src/ai-context.test.mjs"
+  },
+  "dependencies": {
+    "@kitlangton/rolling-number": "0.4.1",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.12.0",
+    "katex": "^0.18.7",
+    "marked": "^18.0.13",
+    "marked-highlight": "^2.2.4",
+    "marked-katex-extension": "^5.1.13",
+    "sanitize-html": "^2.17.7",
+    "three": "^0.183.0",
+    "vditor": "4.0.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.183.0",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1"
+  }
+}

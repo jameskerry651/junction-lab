@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junction Lab · 档案卡片参考稿</title>
+    <link rel="stylesheet" href="preview.css" />
+    <style>
+      @font-face {
+        font-family: "MiSans";
+        src: url("../public/fonts/MiSans-Light.woff2") format("woff2");
+        font-weight: 300;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "MiSans";
+        src: url("../public/fonts/MiSans-Regular.woff2") format("woff2");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "MiSans";
+        src: url("../public/fonts/MiSans-Demibold.woff2") format("woff2");
+        font-weight: 600;
+        font-display: swap;
+      }
+
+      :root {
+        --desk: #cfc4ad;
+        --desk-deep: #b9ac92;
+        --card: #f6f0df;
+        --card-edge: #e6dcc4;
+        --ink: #2b2519;
+        --ink-soft: #4c4333;
+        --muted: #7a6c54;
+        --line: #c4b699;
+        --red: #8f2c22;
+        --blue: #3c4d59;
+        --serif: "Songti SC", "Source Han Serif SC", "Noto Serif SC", "STSong", Georgia, serif;
+        --sans: "MiSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--desk);
+        background-image: radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.35), transparent 52%),
+          radial-gradient(circle at 85% 70%, rgba(80, 62, 38, 0.09), transparent 60%),
+          repeating-linear-gradient(0deg, rgba(70, 55, 35, 0.035) 0 1px, transparent 1px 3px);
+        color: var(--ink);
+        font-family: var(--sans);
+        font-size: 16px;
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .shell {
+        max-width: 1380px;
+        margin: 0 auto;
+        padding: 0 clamp(16px, 3.2vw, 44px) 70px;
+      }
+
+      /* ---------- 顶部 ---------- */
+      .archive-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 30px 0 14px;
+        border-bottom: 2px solid var(--ink);
+      }
+
+      .brand {
+        text-decoration: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .brand .seal {
+        width: 42px;
+        height: 42px;
+        border: 2px solid var(--ink);
+        display: grid;
+        place-items: center;
+        font: 600 11px/1 var(--mono);
+        letter-spacing: 0.04em;
+        flex: none;
+        margin-top: 2px;
+      }
+
+      .brand h1 {
+        margin: 0;
+        font-size: clamp(22px, 2.6vw, 30px);
+        line-height: 1.05;
+        letter-spacing: 0.04em;
+        font-weight: 600;
+      }
+
+      .brand p {
+        margin: 6px 0 0;
+        font: 400 9.5px/1.5 var(--mono);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .head-tools {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .search-box {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 7px 10px;
+        background: var(--card);
+        border: 1px solid var(--ink);
+        box-shadow: 2px 2px 0 rgba(43, 37, 25, 0.18);
+      }
+
+      .search-box label {
+        white-space: nowrap;
+        font: 400 9px/1 var(--mono);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .search-box input {
+        width: clamp(120px, 20vw, 210px);
+        border: 0;
+        background: transparent;
+        font: 400 12px/1.4 var(--sans);
+        color: var(--ink);
+        outline: none;
+      }
+
+      .search-box input::placeholder {
+        color: var(--muted);
+        opacity: 0.7;
+      }
+
+      .head-tabs {
+        display: flex;
+        gap: 8px;
+      }
+
+      .head-tabs button {
+        appearance: none;
+        border: 1px solid var(--ink);
+        background: var(--card);
+        padding: 8px 12px;
+        font: 400 9.5px/1 var(--mono);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        cursor: pointer;
+        box-shadow: 2px 2px 0 rgba(43, 37, 25, 0.18);
+      }
+
+      .head-tabs button.is-active {
+        background: var(--ink);
+        color: var(--card);
+      }
+
+      /* ---------- 抽屉标题 ---------- */
+      .drawer-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 14px;
+        padding: 22px 0 12px;
+        font: 400 9.5px/1.5 var(--mono);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      .drawer-head strong {
+        font: 600 13px/1.4 var(--sans);
+        letter-spacing: 0.08em;
+        color: var(--ink);
+      }
+
+      /* ---------- 分类隔板 ---------- */
+      .tab-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 6px;
+        padding-top: 4px;
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .tab-row button {
+        appearance: none;
+        border: 1px solid var(--line);
+        border-bottom: 0;
+        background: var(--desk-deep);
+        color: var(--ink);
+        padding: 8px 14px 7px;
+        font: 400 11px/1.3 var(--sans);
+        letter-spacing: 0.06em;
+        cursor: pointer;
+        border-radius: 3px 3px 0 0;
+        position: relative;
+        top: 1px;
+        transition: background-color 120ms ease, color 120ms ease;
+      }
+
+      .tab-row button:hover {
+        background: #cec1a8;
+      }
+
+      .tab-row button.is-active {
+        background: var(--card);
+        border-color: var(--ink);
+        color: var(--ink);
+        font-weight: 600;
+      }
+
+      .tab-row button sup {
+        margin-left: 5px;
+        font: 400 8.5px/1 var(--mono);
+        color: var(--red);
+      }
+
+      /* ---------- 卡片网格 ---------- */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 24px 22px;
+        padding: 26px 0 0;
+      }
+
+      .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 16px 20px 18px 26px;
+        background: var(--card);
+        background-image: repeating-linear-gradient(0deg, transparent 0 27px, rgba(120, 100, 70, 0.07) 27px 28px);
+        border: 1px solid var(--line);
+        box-shadow: 3px 4px 0 rgba(70, 55, 35, 0.14), 0 12px 24px -18px rgba(50, 38, 22, 0.5);
+        text-decoration: none;
+        color: inherit;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      .card:nth-child(3n + 1) {
+        transform: rotate(-0.35deg);
+      }
+
+      .card:nth-child(3n + 2) {
+        transform: rotate(0.3deg);
+      }
+
+      .card:hover {
+        transform: rotate(0) translateY(-4px);
+        box-shadow: 5px 8px 0 rgba(70, 55, 35, 0.16), 0 22px 34px -20px rgba(50, 38, 22, 0.55);
+      }
+
+      /* 打孔 */
+      .card::before,
+      .card::after {
+        content: "";
+        position: absolute;
+        left: 8px;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: var(--desk);
+        box-shadow: inset 0 2px 3px rgba(50, 38, 22, 0.35), 0 1px 0 rgba(255, 255, 255, 0.55);
+      }
+
+      .card::before {
+        top: 18px;
+      }
+
+      .card::after {
+        bottom: 18px;
+      }
+
+      .card-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--ink);
+      }
+
+      .card-head .serial {
+        font: 600 10px/1 var(--mono);
+        letter-spacing: 0.1em;
+      }
+
+      .card-head .lib {
+        font: 400 8px/1 var(--mono);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .stamp {
+        display: inline-block;
+        padding: 4px 6px;
+        border: 1.5px solid var(--red);
+        color: var(--red);
+        font: 600 8px/1 var(--mono);
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        transform: rotate(-5deg);
+        opacity: 0.82;
+        white-space: nowrap;
+      }
+
+      .card-title {
+        margin: 14px 0 8px;
+        font-family: var(--serif);
+        font-size: 23px;
+        line-height: 1.36;
+        letter-spacing: -0.005em;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      .card-abstract {
+        margin: 0 0 14px;
+        font-size: 12.5px;
+        line-height: 1.85;
+        color: var(--ink-soft);
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .card-fields {
+        margin: 0 0 16px;
+        border-top: 1px dashed var(--line);
+        padding-top: 10px;
+        font: 400 10.5px/1.85 var(--mono);
+      }
+
+      .card-fields div {
+        display: flex;
+        align-items: baseline;
+        gap: 6px;
+      }
+
+      .card-fields dt {
+        flex: none;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+      }
+
+      .card-fields .dots {
+        flex: 1;
+        border-bottom: 1px dotted var(--line);
+        transform: translateY(-3px);
+      }
+
+      .card-fields dd {
+        margin: 0;
+        text-align: right;
+        color: var(--ink);
+      }
+
+      .card-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: auto;
+        padding-top: 10px;
+        border-top: 1px solid var(--line);
+      }
+
+      .card-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+      }
+
+      .card-tags span {
+        padding: 1px 5px;
+        border: 1px solid var(--line);
+        font: 400 8.5px/1.6 var(--mono);
+        color: var(--muted);
+        letter-spacing: 0.04em;
+      }
+
+      .card-cta {
+        font: 600 8.5px/1 var(--mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--red);
+        white-space: nowrap;
+      }
+
+      .card:hover .card-cta {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      .empty-state {
+        margin: 36px 0 0;
+        padding: 40px 20px;
+        border: 1px dashed var(--line);
+        text-align: center;
+        font: 400 12px/1.8 var(--mono);
+        color: var(--muted);
+        background: rgba(246, 240, 223, 0.4);
+      }
+
+      .result-line {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 14px 0 0;
+        font: 400 9.5px/1.6 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      /* ---------- 阅读室 ---------- */
+      .reading-wrap {
+        padding: 30px 0 0;
+      }
+
+      .back-btn {
+        appearance: none;
+        background: none;
+        border: 0;
+        border-bottom: 1px solid var(--ink);
+        padding: 0 0 3px;
+        margin-bottom: 22px;
+        font: 400 10px/1.5 var(--mono);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        cursor: pointer;
+      }
+
+      .back-btn:hover {
+        color: var(--red);
+        border-bottom-color: var(--red);
+      }
+
+      .sheet {
+        position: relative;
+        max-width: 820px;
+        margin: 0 auto;
+        padding: clamp(28px, 5vw, 54px) clamp(24px, 6vw, 72px) 48px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        box-shadow: 4px 6px 0 rgba(70, 55, 35, 0.12), 0 26px 50px -30px rgba(50, 38, 22, 0.6);
+      }
+
+      .sheet::before,
+      .sheet::after {
+        content: "";
+        position: absolute;
+        left: 14px;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--desk);
+        box-shadow: inset 0 2px 3px rgba(50, 38, 22, 0.35);
+      }
+
+      .sheet::before {
+        top: 24px;
+      }
+
+      .sheet::after {
+        bottom: 24px;
+      }
+
+      .sheet-stamp {
+        position: absolute;
+        top: 26px;
+        right: 26px;
+        text-align: center;
+        border: 2px solid rgba(143, 44, 34, 0.7);
+        color: rgba(143, 44, 34, 0.78);
+        padding: 6px 9px;
+        transform: rotate(6deg);
+        font: 600 8px/1.5 var(--mono);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .sheet-head {
+        padding-right: 0;
+      }
+
+      .sheet-head .collection {
+        margin: 0 0 8px;
+        font: 400 9px/1.4 var(--mono);
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .sheet-head h1 {
+        max-width: 16em;
+        margin: 0;
+        font-family: var(--serif);
+        font-size: clamp(28px, 4vw, 42px);
+        line-height: 1.28;
+        letter-spacing: -0.01em;
+        font-weight: 600;
+        text-wrap: balance;
+      }
+
+      .accession {
+        width: 100%;
+        margin: 22px 0 20px;
+        border-collapse: collapse;
+        table-layout: fixed;
+        font: 400 10.5px/1.5 var(--mono);
+      }
+
+      .accession th,
+      .accession td {
+        border: 1px solid var(--line);
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
+        word-break: break-word;
+      }
+
+      .accession th {
+        width: 15%;
+        background: rgba(196, 182, 153, 0.18);
+        font-weight: 400;
+        color: var(--muted);
+        letter-spacing: 0.06em;
+      }
+
+      .accession td {
+        width: 35%;
+      }
+
+      .sheet-abstract {
+        margin: 0 0 26px;
+        padding: 14px 16px;
+        border-left: 3px solid var(--ink);
+        background: rgba(196, 182, 153, 0.16);
+        font-family: var(--serif);
+        font-size: 15px;
+        line-height: 1.9;
+        color: var(--ink-soft);
+      }
+
+      .sheet-abstract b {
+        display: block;
+        margin-bottom: 4px;
+        font: 600 9px/1.5 var(--mono);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--red);
+      }
+
+      .sheet-body {
+        min-width: 0;
+        font-family: var(--serif);
+        font-size: 17px;
+        line-height: 1.95;
+        color: var(--ink);
+      }
+
+      .sheet-body p {
+        margin: 0 0 1.3em;
+        text-align: justify;
+        text-wrap: pretty;
+      }
+
+      .sheet-body .lede {
+        font-size: 18.5px;
+      }
+
+      .sheet-body h2 {
+        margin: 2.4em 0 0.9em;
+        font-family: var(--sans);
+        font-size: 21px;
+        line-height: 1.4;
+        letter-spacing: 0.01em;
+        font-weight: 600;
+        scroll-margin-top: 24px;
+      }
+
+      .sheet-body h2 .secnum {
+        display: inline-block;
+        margin-right: 10px;
+        padding: 2px 5px;
+        border: 1px solid var(--ink);
+        font: 400 9.5px/1.5 var(--mono);
+        letter-spacing: 0.06em;
+        vertical-align: 3px;
+      }
+
+      .sheet-body strong {
+        font-weight: 600;
+      }
+
+      .sheet-body em {
+        font-style: italic;
+      }
+
+      .sheet-body ul,
+      .sheet-body ol {
+        margin: 0 0 1.4em;
+        padding-left: 1.4em;
+      }
+
+      .sheet-body li {
+        margin-bottom: 0.4em;
+      }
+
+      .sheet-body li::marker {
+        color: var(--red);
+      }
+
+      .formula {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0 12px;
+        margin: 2em 0;
+        padding: 16px 10px;
+        max-width: 100%;
+        overflow-x: auto;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        font: 400 17px/2 var(--serif);
+        text-align: center;
+      }
+
+      .formula-op {
+        color: var(--muted);
+      }
+
+      .frac {
+        display: inline-flex;
+        flex-direction: column;
+        vertical-align: middle;
+        margin: 0 0.16em;
+        font-size: 0.82em;
+        line-height: 1.25;
+        text-align: center;
+      }
+
+      .frac span:first-child {
+        border-bottom: 1px solid currentColor;
+        padding: 0 0.26em 0.1em;
+      }
+
+      .frac span:last-child {
+        padding: 0.08em 0.26em 0;
+      }
+
+      .sheet-body figure {
+        margin: 2em 0;
+        padding: 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.35);
+      }
+
+      .sheet-body figure img {
+        width: 100%;
+        filter: sepia(0.08) saturate(0.9);
+      }
+
+      .sheet-body figcaption {
+        margin-top: 8px;
+        font: 400 10px/1.6 var(--mono);
+        letter-spacing: 0.04em;
+        color: var(--muted);
+      }
+
+      .figlabel {
+        margin-right: 6px;
+        color: var(--red);
+        font-weight: 600;
+      }
+
+      .sheet-body blockquote {
+        margin: 2em 0;
+        padding: 14px 18px;
+        border: 1px dashed var(--line);
+        background: rgba(196, 182, 153, 0.12);
+        font-size: 17px;
+        line-height: 1.85;
+        font-style: italic;
+      }
+
+      .sheet-body blockquote p {
+        margin: 0;
+        text-align: left;
+      }
+
+      .sheet-body pre {
+        position: relative;
+        margin: 2em 0;
+        padding: 30px 16px 18px;
+        overflow-x: auto;
+        background: #fbf6e8;
+        border: 1px solid var(--line);
+        border-left: 3px solid var(--blue);
+        font: 400 12.5px/1.75 var(--mono);
+        color: var(--ink);
+      }
+
+      .sheet-body pre::before {
+        content: "附件 · " attr(data-lang);
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 5px 9px;
+        border-right: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        font: 400 8.5px/1 var(--mono);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .sheet-body table {
+        width: 100%;
+        border-collapse: collapse;
+        font: 400 12.5px/1.7 var(--sans);
+      }
+
+      .sheet-body caption {
+        caption-side: top;
+        margin-bottom: 8px;
+        text-align: left;
+        font: 400 9.5px/1.5 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .sheet-body thead th {
+        padding: 7px 9px;
+        border: 1px solid var(--line);
+        background: rgba(196, 182, 153, 0.2);
+        text-align: left;
+        font: 600 10.5px/1.5 var(--sans);
+      }
+
+      .sheet-body tbody td {
+        padding: 7px 9px;
+        border: 1px solid var(--line);
+      }
+
+      .sheet-body .table-wrap {
+        margin: 2em 0;
+        overflow-x: auto;
+      }
+
+      .fnref {
+        font-size: 0.66em;
+        vertical-align: super;
+        line-height: 0;
+      }
+
+      .fnref a {
+        color: var(--red);
+        text-decoration: none;
+      }
+
+      .sheet-body .footnotes {
+        margin-top: 2.6em;
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+        font: 400 11px/1.8 var(--mono);
+        color: var(--muted);
+      }
+
+      .sheet-body .footnotes h3 {
+        margin: 0 0 6px;
+        font: 600 9px/1 var(--mono);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      .sheet-body .footnotes ol {
+        margin: 0;
+        padding-left: 1.5em;
+      }
+
+      .borrow-card {
+        margin-top: 32px;
+        border: 1px solid var(--line);
+        padding: 12px 14px;
+      }
+
+      .borrow-card h2 {
+        margin: 0 0 8px;
+        font: 600 9px/1.4 var(--mono);
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .borrow-card table {
+        width: 100%;
+        border-collapse: collapse;
+        font: 400 9.5px/1.9 var(--mono);
+      }
+
+      .borrow-card th {
+        text-align: left;
+        font-weight: 400;
+        color: var(--muted);
+        width: 30%;
+        border-bottom: 1px dotted var(--line);
+      }
+
+      .borrow-card td {
+        border-bottom: 1px dotted var(--line);
+        color: var(--muted);
+      }
+
+      .sheet-foot {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 10px;
+        margin-top: 20px;
+        padding-top: 12px;
+        border-top: 1px solid var(--ink);
+        font: 400 9px/1.6 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      /* ---------- 页脚 ---------- */
+      .archive-foot {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: 44px;
+        padding-top: 14px;
+        border-top: 1px solid var(--ink-soft);
+        font: 400 9.5px/1.8 var(--mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+      }
+
+      .archive-foot .study-switcher {
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.12em;
+      }
+
+      /* ---------- 响应式 ---------- */
+      @media (max-width: 720px) {
+        .archive-head {
+          align-items: flex-start;
+        }
+        .head-tools {
+          width: 100%;
+        }
+        .search-box {
+          flex: 1;
+        }
+        .search-box input {
+          width: 100%;
+        }
+        .card-grid {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+        .card {
+          transform: none !important;
+        }
+        .sheet {
+          padding: 26px 20px 34px;
+        }
+        .sheet-stamp {
+          position: static;
+          display: inline-block;
+          margin: 0 0 16px 8px;
+          transform: rotate(-2deg);
+        }
+        .sheet-head {
+          padding-right: 0;
+        }
+        .sheet-head h1 {
+          font-size: clamp(26px, 8vw, 34px);
+        }
+        .accession {
+          display: none;
+        }
+        .sheet-body {
+          font-size: 16.5px;
+        }
+        .formula {
+          font-size: 14.5px;
+        }
+        .archive-foot {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="shell">
+      <header class="archive-head">
+        <a class="brand" href="#" data-view-target="index">
+          <span class="seal">JL</span>
+          <span>
+            <h1>Junction Lab 档案室</h1>
+            <p>Card Catalogue · 74 Records · Est. 2024</p>
+          </span>
+        </a>
+        <div class="head-tools">
+          <div class="search-box">
+            <label for="cardSearch">检索</label>
+            <input id="cardSearch" type="search" placeholder="标题 / 标签 / 摘要" autocomplete="off" />
+          </div>
+          <div class="head-tabs">
+            <button type="button" data-view-target="index">卡片目录</button>
+            <button type="button" data-view-target="article">阅读室</button>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section data-view="index" aria-label="卡片目录">
+          <div class="drawer-head">
+            <span><strong>抽屉 03</strong> · 全部分类</span>
+            <span id="drawerCount">12 张卡片 · 按日期倒序</span>
+          </div>
+
+          <div class="tab-row" role="group" aria-label="分类隔板">
+            <button type="button" class="is-active" data-filter="全部">全部<sup>12</sup></button>
+            <button type="button" data-filter="工程实践">工程实践<sup>2</sup></button>
+            <button type="button" data-filter="算法与数据">算法与数据<sup>3</sup></button>
+            <button type="button" data-filter="系统与网络">系统与网络<sup>2</sup></button>
+            <button type="button" data-filter="论文研读">论文研读<sup>4</sup></button>
+            <button type="button" data-filter="生活随记">生活随记<sup>1</sup></button>
+          </div>
+
+          <div class="card-grid" id="cardGrid"></div>
+          <p class="empty-state" id="emptyState" hidden>没有符合条件的卡片。试试更短的关键词，或切回「全部」。</p>
+
+          <div class="result-line">
+            <span>Showing <b id="cardCount">12</b> / 74 records</span>
+            <span>Junction Lab · Public Collection</span>
+          </div>
+        </section>
+
+        <section data-view="article" aria-label="阅读室" hidden>
+          <div class="reading-wrap">
+            <button class="back-btn" type="button" data-view-target="index">← 返回卡片目录</button>
+
+            <article class="sheet">
+              <div class="sheet-stamp">Reading Room Copy<br />仅限馆内阅读</div>
+
+              <header class="sheet-head">
+                <p class="collection">Junction Lab · 阅读室借阅单</p>
+                <h1 id="archiveTitle">重要性采样在强化学习中的应用</h1>
+              </header>
+
+              <table class="accession">
+                <tbody>
+                  <tr>
+                    <th scope="row">索书号</th>
+                    <td>X-080</td>
+                    <th scope="row">分类</th>
+                    <td id="archiveCategory">算法与数据</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">作者</th>
+                    <td>James</td>
+                    <th scope="row">日期</th>
+                    <td id="archiveDate">2026-06-11</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">篇幅</th>
+                    <td id="archiveRead">约 8 分钟</td>
+                    <th scope="row">状态</th>
+                    <td>公开 · 可阅览</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p class="sheet-abstract"><b>摘要 / Abstract</b><span id="archiveAbstract"></span></p>
+
+              <div class="sheet-body" id="archiveBody"></div>
+
+              <div class="borrow-card">
+                <h2>借阅记录 / Loan Record</h2>
+                <table>
+                  <tbody>
+                    <tr><th>借阅人</th><td></td></tr>
+                    <tr><th>借出日期</th><td></td></tr>
+                    <tr><th>归还日期</th><td></td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="sheet-foot">
+                <span>Junction Lab · Reading Room</span>
+                <span>请勿折角 · 请勿带走</span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="archive-foot">
+        <span>Junction Lab · Style Study D — Archive Cards</span>
+        <nav class="study-switcher" aria-label="其他风格参考稿">
+          <a href="academic.html">学术极简</a>
+          <a href="swiss.html">瑞士网格</a>
+          <a href="editorial.html">编辑杂志</a>
+          <a href="archive-cards.html" aria-current="page">档案卡片</a>
+          <a href="index.html">全部</a>
+        </nav>
+      </footer>
+    </div>
+
+    <script src="demo-data.js"></script>
+    <script src="preview.js"></script>
+    <script>
+      (function () {
+        const { escape } = Preview.helpers;
+        const article = DEMO.article;
+        const grid = document.getElementById('cardGrid');
+        const search = document.getElementById('cardSearch');
+        const empty = document.getElementById('emptyState');
+        let filter = '全部';
+        let query = '';
+
+        function renderCards() {
+          const q = query.trim().toLowerCase();
+          const items = DEMO.posts.filter((p) => {
+            const inCat = filter === '全部' || p.category === filter;
+            const haystack = [p.title, p.abstract, p.category, p.tags.join(' '), p.id].join(' ').toLowerCase();
+            return inCat && (!q || haystack.includes(q));
+          });
+
+          grid.innerHTML = items
+            .map(
+              (p) => `
+              <a class="card" href="#article" data-open-article>
+                <div class="card-head">
+                  <span class="serial">${p.id}</span>
+                  <span class="lib">Archive Card</span>
+                  <span class="stamp">Public</span>
+                </div>
+                <h2 class="card-title">${escape(p.title)}</h2>
+                <p class="card-abstract">${escape(p.abstract)}</p>
+                <dl class="card-fields">
+                  <div><dt>分类</dt><span class="dots"></span><dd>${escape(p.category)}</dd></div>
+                  <div><dt>日期</dt><span class="dots"></span><dd>${p.date}</dd></div>
+                  <div><dt>篇幅</dt><span class="dots"></span><dd>${p.readTime}</dd></div>
+                </dl>
+                <div class="card-foot">
+                  <span class="card-tags">${p.tags.map((t) => `<span>${escape(t)}</span>`).join('')}</span>
+                  <span class="card-cta">阅读卡片 →</span>
+                </div>
+              </a>`,
+            )
+            .join('');
+
+          empty.hidden = items.length > 0;
+          document.getElementById('cardCount').textContent = items.length;
+          document.getElementById('drawerCount').textContent =
+            filter === '全部' ? `${items.length} 张卡片 · 按日期倒序` : `${filter} · ${items.length} 张卡片`;
+        }
+
+        document.querySelectorAll('[data-filter]').forEach((button) => {
+          button.addEventListener('click', () => {
+            filter = button.dataset.filter;
+            document.querySelectorAll('[data-filter]').forEach((b) => b.classList.toggle('is-active', b === button));
+            renderCards();
+          });
+        });
+
+        search.addEventListener('input', () => {
+          query = search.value;
+          renderCards();
+        });
+
+        document.getElementById('archiveTitle').textContent = article.title;
+        document.getElementById('archiveCategory').textContent = article.category;
+        document.getElementById('archiveDate').textContent = article.date;
+        document.getElementById('archiveRead').textContent = article.readTime;
+        document.getElementById('archiveAbstract').textContent = article.abstract;
+        document.getElementById('archiveBody').innerHTML = article.body;
+
+        renderCards();
+      })();
+    </script>
+  </body>
+</html>

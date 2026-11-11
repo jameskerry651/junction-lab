@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Junction Lab · 风格参考稿</title>
+    <link rel="stylesheet" href="preview.css" />
+    <style>
+      :root {
+        --bg: #101010;
+        --panel: #171717;
+        --line: #2e2e2e;
+        --ink: #f4f2ec;
+        --muted: #9a968c;
+        --accent: #d9ff5a;
+        --sans: "MiSans", -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, monospace;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--ink);
+        font-family: var(--sans);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 clamp(18px, 4vw, 56px) 80px;
+      }
+
+      .top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 22px 0;
+        border-bottom: 1px solid var(--line);
+        font: 400 10px/1.5 var(--mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .top strong {
+        color: var(--ink);
+        font-weight: 400;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1.5fr) minmax(260px, 1fr);
+        gap: 30px clamp(24px, 5vw, 70px);
+        padding: clamp(44px, 7vw, 92px) 0 46px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(38px, 6.4vw, 82px);
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        font-weight: 400;
+      }
+
+      .hero h1 em {
+        color: var(--accent);
+        font-style: normal;
+      }
+
+      .hero p {
+        margin: 0 0 1em;
+        font-size: 15px;
+        line-height: 1.85;
+        color: var(--muted);
+        max-width: 42em;
+      }
+
+      .hero p b {
+        color: var(--ink);
+        font-weight: 400;
+      }
+
+      .hero .meta {
+        margin: 22px 0 0;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px 18px;
+        font: 400 10px/1.6 var(--mono);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .hero .meta span b {
+        color: var(--ink);
+        font-weight: 400;
+      }
+
+      .studies {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+        padding: 44px 0 0;
+      }
+
+      .study {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 160ms ease, transform 160ms ease;
+      }
+
+      .study:hover {
+        border-color: #575750;
+        transform: translateY(-2px);
+      }
+
+      .study-thumb {
+        display: block;
+        position: relative;
+        aspect-ratio: 16 / 10;
+        overflow: hidden;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .study-body {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px 22px 18px;
+        flex: 1;
+      }
+
+      .study-kicker {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 10px;
+        font: 400 9.5px/1.5 var(--mono);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .study-kicker .tag {
+        color: var(--accent);
+      }
+
+      .study h2 {
+        margin: 0;
+        font-size: 26px;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+        font-weight: 400;
+      }
+
+      .study p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .specs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin: 2px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .specs li {
+        padding: 3px 7px;
+        border: 1px solid var(--line);
+        font: 400 9px/1.5 var(--mono);
+        letter-spacing: 0.05em;
+        color: var(--muted);
+      }
+
+      .study-links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-top: auto;
+        padding-top: 14px;
+        border-top: 1px solid var(--line);
+        font: 400 10px/1.5 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      .study-links .open {
+        color: var(--ink);
+        text-decoration: none;
+      }
+
+      .study-links .alt {
+        color: var(--muted);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .study-links a {
+        text-decoration: none;
+      }
+
+      .study-links a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      /* 缩略图：四种风格的抽象示意 */
+      .thumb {
+        position: absolute;
+        inset: 0;
+        padding: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        font-size: 9px;
+        line-height: 1.3;
+      }
+
+      .thumb-academic {
+        background: #faf8f3;
+        color: #191813;
+        font-family: Georgia, "Songti SC", serif;
+        padding: 0;
+        gap: 0;
+      }
+      .thumb-academic .ta-top {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        padding: 14px 18px 10px;
+        border-bottom: 1px solid #b9b1a0;
+      }
+      .thumb-academic .ta-brand {
+        font-size: 15px;
+        letter-spacing: 0.01em;
+      }
+      .thumb-academic .ta-mode {
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 5.5px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #7c2b22;
+      }
+      .thumb-academic .ta-search {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        margin: 18px 18px 12px;
+        padding-bottom: 7px;
+        border-bottom: 1px solid #191813;
+      }
+      .thumb-academic .ta-lens {
+        width: 7px;
+        height: 7px;
+        border: 1px solid #79736a;
+        border-radius: 50%;
+        position: relative;
+      }
+      .thumb-academic .ta-lens::after {
+        content: "";
+        position: absolute;
+        right: -3px;
+        bottom: -2px;
+        width: 4px;
+        height: 1px;
+        background: #79736a;
+        transform: rotate(45deg);
+      }
+      .thumb-academic .ta-ph {
+        font-size: 10px;
+        color: #847d70;
+      }
+      .thumb-academic .ta-list {
+        display: flex;
+        flex-direction: column;
+        padding: 0 18px;
+      }
+      .thumb-academic .ta-row {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 8px;
+        align-items: baseline;
+        padding: 7px 0;
+        border-top: 1px solid #e2dccf;
+        font-size: 9.5px;
+        color: #2c2a24;
+      }
+      .thumb-academic .ta-row i {
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 5.5px;
+        font-style: normal;
+        color: #847d70;
+        letter-spacing: 0.04em;
+      }
+      .thumb-academic .ta-foot {
+        margin-top: auto;
+        padding: 10px 18px;
+        border-top: 1px solid #b9b1a0;
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 5.5px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #7c2b22;
+      }
+
+      .thumb-swiss {
+        background: #fff;
+        color: #0b0b0b;
+        font-family: "Helvetica Neue", MiSans, sans-serif;
+      }
+      .thumb-swiss .giant {
+        font-size: 34px;
+        line-height: 0.82;
+        letter-spacing: -0.06em;
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+      .thumb-swiss .giant i {
+        color: #e2261c;
+        font-style: normal;
+      }
+      .thumb-swiss .bar {
+        display: flex;
+        gap: 8px;
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 6px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: #6f6f6f;
+        border-bottom: 1px solid #0b0b0b;
+        border-top: 1px solid #0b0b0b;
+        padding: 3px 0;
+        margin-top: 4px;
+      }
+      .thumb-swiss .rows {
+        display: grid;
+        gap: 3px;
+        margin-top: 4px;
+      }
+      .thumb-swiss .rows span {
+        display: block;
+        height: 8px;
+        background: #0b0b0b;
+      }
+      .thumb-swiss .rows span:first-child {
+        background: #e2261c;
+        width: 28%;
+      }
+
+      .thumb-editorial {
+        background: #f7f1e4;
+        color: #241c15;
+        font-family: Georgia, "Songti SC", serif;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        gap: 5px;
+      }
+      .thumb-editorial .iss {
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 6px;
+        letter-spacing: 0.22em;
+        color: #857763;
+      }
+      .thumb-editorial .word {
+        font-size: 25px;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1;
+      }
+      .thumb-editorial .word i {
+        color: #a63d1c;
+        font-weight: 400;
+      }
+      .thumb-editorial .rule-d {
+        width: 70%;
+        border-top: 3px double #241c15;
+      }
+      .thumb-editorial .cols {
+        display: flex;
+        gap: 6px;
+        width: 80%;
+        margin-top: 3px;
+      }
+      .thumb-editorial .cols span {
+        flex: 1;
+        height: 26px;
+        background: repeating-linear-gradient(0deg, #4a3f33 0 1px, transparent 1px 4px);
+        opacity: 0.55;
+      }
+      .thumb-editorial .cols span:first-child {
+        background: #a63d1c;
+        opacity: 0.8;
+      }
+
+      .thumb-archive {
+        background: #cfc4ad;
+        padding: 16px;
+      }
+      .thumb-archive .card {
+        flex: 1;
+        background: #f6f0df;
+        border: 1px solid #c4b699;
+        box-shadow: 2px 3px 0 rgba(70, 55, 35, 0.16);
+        padding: 8px 10px 8px 16px;
+        position: relative;
+        color: #2b2519;
+        font-family: MiSans, sans-serif;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+      .thumb-archive .card::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #cfc4ad;
+      }
+      .thumb-archive .ch {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #2b2519;
+        padding-bottom: 3px;
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 5px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .thumb-archive .ch b {
+        color: #8f2c22;
+        border: 1px solid #8f2c22;
+        padding: 1px 3px;
+        transform: rotate(-3deg);
+      }
+      .thumb-archive .ttl {
+        font-family: Georgia, "Songti SC", serif;
+        font-size: 13px;
+        line-height: 1.25;
+        margin-top: 2px;
+      }
+      .thumb-archive .lines {
+        height: 14px;
+        background: repeating-linear-gradient(0deg, #7a6c54 0 1px, transparent 1px 4px);
+        opacity: 0.45;
+      }
+      .thumb-archive .fields {
+        margin-top: auto;
+        display: grid;
+        gap: 2px;
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 5px;
+        color: #7a6c54;
+      }
+      .thumb-archive .fields span {
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px dotted #c4b699;
+      }
+
+      /* 对比表 */
+      .compare {
+        padding: 52px 0 0;
+      }
+
+      .section-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: clamp(22px, 2.6vw, 30px);
+        font-weight: 400;
+        letter-spacing: -0.02em;
+      }
+
+      .section-head p {
+        margin: 0;
+        font: 400 10px/1.6 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 760px;
+        font-size: 13px;
+        line-height: 1.7;
+      }
+
+      th,
+      td {
+        padding: 12px 14px;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid var(--line);
+      }
+
+      thead th {
+        font: 400 9.5px/1.5 var(--mono);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border-bottom-color: #3d3d3d;
+      }
+
+      tbody th {
+        font-weight: 400;
+        color: var(--ink);
+        white-space: nowrap;
+      }
+
+      tbody td {
+        color: var(--muted);
+      }
+
+      tbody td:first-of-type {
+        color: var(--ink);
+      }
+
+      .note {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px;
+        margin-top: 40px;
+        padding-top: 26px;
+        border-top: 1px solid var(--line);
+      }
+
+      .note div {
+        font-size: 13px;
+        line-height: 1.85;
+        color: var(--muted);
+      }
+
+      .note h3 {
+        margin: 0 0 8px;
+        font: 400 10px/1.5 var(--mono);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .note b {
+        color: var(--ink);
+        font-weight: 400;
+      }
+
+      .foot {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 14px;
+        margin-top: 48px;
+        padding-top: 16px;
+        border-top: 1px solid var(--line);
+        font: 400 9.5px/1.8 var(--mono);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .foot .study-switcher {
+        font-family: var(--mono);
+        font-size: 9.5px;
+        letter-spacing: 0.1em;
+      }
+
+      @media (max-width: 880px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+        .studies {
+          grid-template-columns: 1fr;
+        }
+        .note {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <div class="top">
+        <span><strong>Junction Lab</strong> / Design Studies</span>
+        <span>4 Directions · Static Reference · 2026</span>
+      </div>
+
+      <header class="hero">
+        <div>
+          <h1>四种<br />纸上<em>方案</em>。</h1>
+          <p style="margin-top: 18px">
+            都是独立静态页，用真实文章内容填充，只探索<strong>阅读气质</strong>，不改动现有终端站。
+            每套都包含「目录页 + 文章页」，可切换分类与检索，文章页有目录与真实排版样本。
+          </p>
+          <p>
+            这不是要替换现在的 Junction Lab，而是一组可以摆在桌上比较的参照：看标题如何组织、正文如何呼吸、
+            元数据应该退到多远。
+          </p>
+        </div>
+        <div>
+          <p class="meta">
+            <span>形式 <b>单文件 HTML</b></span>
+            <span>内容 <b>真实文章</b></span>
+            <span>构建 <b>互不影响</b></span>
+            <span>入口 <b>design-studies/</b></span>
+          </p>
+        </div>
+      </header>
+
+      <div class="studies">
+        <article class="study">
+          <a class="study-thumb" href="academic.html" aria-label="打开参考稿">
+            <span class="thumb thumb-academic">
+              <span class="ta-top"><span class="ta-brand">Junction Lab</span><span class="ta-mode">日间 / 夜间</span></span>
+              <span class="ta-search"><span class="ta-lens"></span><span class="ta-ph">搜索标题、标签或摘要</span></span>
+              <span class="ta-list">
+                <span class="ta-row"><i>08.26</i><b>芯片架构与编译器</b></span>
+                <span class="ta-row"><i>06.13</i><b>定时器的原理和应用</b></span>
+                <span class="ta-row"><i>06.11</i><b>重要性采样在强化学习中的应用</b></span>
+                <span class="ta-row"><i>06.09</i><b>熵，交叉熵与 KL 散度</b></span>
+                <span class="ta-row"><i>05.28</i><b>基于水动力学的多智能体拖轮协同框架</b></span>
+                <span class="ta-row"><i>01.28</i><b>uv 教程</b></span>
+                <span class="ta-row"><i>12.10</i><b>git 常用操作</b></span>
+              </span>
+              <span class="ta-foot">12 篇样本 · 5 个分类 · 2024—2026</span>
+            </span>
+          </a>
+          <div class="study-body">
+            <span class="study-kicker"><span class="tag">Study A</span><span>Academic · Light/Dark</span></span>
+            <h2>学术极简</h2>
+            <p>日间 / 夜间两套阅读模式；搜索、按年时间轴、按类别分组的密集归档与关于页共用一套单栏网格。</p>
+            <ul class="specs">
+              <li>日间 / 夜间</li>
+              <li>搜索 + 时间轴</li>
+              <li>分类归档</li>
+              <li>Noto Serif / Source Serif</li>
+            </ul>
+            <div class="study-links">
+              <a class="open" href="academic.html">打开参考稿 →</a>
+              <a class="alt" href="academic.html#/post">文章页</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="study">
+          <a class="study-thumb" href="swiss.html" aria-label="打开参考稿">
+            <span class="thumb thumb-swiss">
+              <span class="giant">Junc<br />tion<i>.</i></span>
+              <span class="bar"><span>Index</span><span>74 Texts</span><span>12 Col</span><span>2026</span></span>
+              <span class="rows">
+                <span></span><span></span><span></span><span></span>
+              </span>
+            </span>
+          </a>
+          <div class="study-body">
+            <span class="study-kicker"><span class="tag">Study B</span><span>Swiss Grid</span></span>
+            <h2>瑞士网格</h2>
+            <p>严格十二栏、超大序号、发丝线与一抹红。索引本身成为版式主角，可随时打开栅格辅助线。</p>
+            <ul class="specs">
+              <li>MiSans / Mono</li>
+              <li>12 栏网格</li>
+              <li>白 + 黑 + #E2261C</li>
+              <li>栅格开关</li>
+            </ul>
+            <div class="study-links">
+              <a class="open" href="swiss.html">打开参考稿 →</a>
+              <a class="alt" href="swiss.html#article">文章页</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="study">
+          <a class="study-thumb" href="editorial.html" aria-label="打开参考稿">
+            <span class="thumb thumb-editorial">
+              <span class="iss">NO. 07 · AUTUMN 2026</span>
+              <span class="word">Junction <i>Lab</i></span>
+              <span class="rule-d"></span>
+              <span class="iss">Systems · Algorithms · Craft</span>
+              <span class="cols"><span></span><span></span><span></span></span>
+            </span>
+          </a>
+          <div class="study-body">
+            <span class="study-kicker"><span class="tag">Study C</span><span>Editorial</span></span>
+            <h2>编辑杂志</h2>
+            <p>纸感底色、双线刊头、首字下沉与跨栏引语。像一期私人刊物，适合有叙事感的文章。</p>
+            <ul class="specs">
+              <li>Songti 标题</li>
+              <li>封面故事 + 短札</li>
+              <li>米色纸 + 铁锈红</li>
+              <li>首字下沉</li>
+            </ul>
+            <div class="study-links">
+              <a class="open" href="editorial.html">打开参考稿 →</a>
+              <a class="alt" href="editorial.html#article">文章页</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="study">
+          <a class="study-thumb" href="archive-cards.html" aria-label="打开参考稿">
+            <span class="thumb thumb-archive">
+              <span class="card">
+                <span class="ch"><span>JL · X-080</span><b>Public</b></span>
+                <span class="ttl">重要性采样在强化学习中的应用</span>
+                <span class="lines"></span>
+                <span class="fields">
+                  <span><i>分类</i><i>算法与数据</i></span>
+                  <span><i>日期</i><i>2026-06-11</i></span>
+                  <span><i>篇幅</i><i>8 min</i></span>
+                </span>
+              </span>
+            </span>
+          </a>
+          <div class="study-body">
+            <span class="study-kicker"><span class="tag">Study D</span><span>Archive Cards</span></span>
+            <h2>档案卡片</h2>
+            <p>卡片盒、打孔、印章与借阅单。检索与分类像翻抽屉，阅读室则是一张安静的馆藏纸。</p>
+            <ul class="specs">
+              <li>Mono 标签</li>
+              <li>卡片网格</li>
+              <li>纸箱米 + 印章红</li>
+              <li>检索可用</li>
+            </ul>
+            <div class="study-links">
+              <a class="open" href="archive-cards.html">打开参考稿 →</a>
+              <a class="alt" href="archive-cards.html#article">阅读室</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="compare" aria-label="风格对比">
+        <div class="section-head">
+          <h2>怎么选</h2>
+          <p>Direction · Type · Grid · Tone</p>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">方向</th>
+                <th scope="col">字体组合</th>
+                <th scope="col">版式结构</th>
+                <th scope="col">色彩</th>
+                <th scope="col">更适合</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">A · 学术极简</th>
+                <td>宋体正文 + 极少量无衬线元数据</td>
+                <td>单栏时间轴；分类按组归档，日期与标题成行</td>
+                <td>纸白 / 暖黑，共用一套绛红强调色</td>
+                <td>论文研读、算法推导、长文</td>
+              </tr>
+              <tr>
+                <th scope="row">B · 瑞士网格</th>
+                <td>MiSans 粗标题 + 等宽编号</td>
+                <td>12 栏栅格，非对称标题与侧栏</td>
+                <td>纯白、纯黑、信号红</td>
+                <td>工程索引、快速扫读、分类很多</td>
+              </tr>
+              <tr>
+                <th scope="row">C · 编辑杂志</th>
+                <td>宋体大标题 + 无衬线小标签</td>
+                <td>封面故事 + 要目 + 三栏短札</td>
+                <td>米纸、焦褐、铁锈红</td>
+                <td>生活随记、项目复盘、有叙事的文章</td>
+              </tr>
+              <tr>
+                <th scope="row">D · 档案卡片</th>
+                <td>等宽标签 + 宋体标题</td>
+                <td>卡片网格，阅读室为单页纸</td>
+                <td>纸箱米、印章红、墨蓝</td>
+                <td>大量文章、标签体系、档案感品牌</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <div class="note">
+        <div>
+          <h3>这些页面是什么</h3>
+          <p>
+            全部位于 <b>design-studies/</b>，是独立的静态参考，不接入 Vite 构建，也不会改变
+            <b>src/</b> 下的现有终端界面。内容取自真实的 12 篇文章与 1 篇完整正文，图片复制在
+            <b>design-studies/media/</b>。
+          </p>
+        </div>
+        <div>
+          <h3>可以直接做的下一步</h3>
+          <p>
+            如果其中一套想继续推进，再决定是只借鉴局部（标题、目录、卡片），还是把它落到真实数据与阅读页上。
+            后者需要重新处理分类循环、全文渲染和手机布局，属于一次完整的界面改造。
+          </p>
+        </div>
+      </div>
+
+      <footer class="foot">
+        <span>Junction Lab · 4 Design Studies · 2026</span>
+        <nav class="study-switcher" aria-label="风格参考稿导航">
+          <a href="academic.html">学术极简</a>
+          <a href="swiss.html">瑞士网格</a>
+          <a href="editorial.html">编辑杂志</a>
+          <a href="archive-cards.html">档案卡片</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

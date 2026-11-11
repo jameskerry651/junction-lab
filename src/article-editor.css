@@ -1,0 +1,501 @@
+.editor-writing-panel {
+  min-width: 0;
+  padding: 22px !important;
+}
+.editor-writing-panel .editor-caption {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  margin: 22px 0 14px;
+}
+.editor-caption h2 {
+  margin: 0;
+}
+.editor-caption small {
+  font-family: var(--mono, monospace);
+  font-size: 11px;
+  color: var(--muted, #819077);
+}
+.editor-writing-panel .vditor {
+  --panel-background-color: var(--paper-card, #fff);
+  --toolbar-background-color: var(--paper-deep, #f5f7f1);
+  --border-color: var(--rule, #dbe2d3);
+  --toolbar-icon-color: var(--muted, #53634b);
+  --toolbar-icon-hover-color: var(--accent, #7c2b22);
+  --textarea-text-color: var(--ink, #263227);
+  border-radius: 6px;
+  overflow: visible;
+  font-family: var(--sans, MiSans, system-ui, sans-serif);
+}
+.vditor .vditor-toolbar {
+  padding: 9px 8px !important;
+  border-radius: 6px 6px 0 0;
+  flex-wrap: wrap;
+  height: auto;
+  z-index: 5;
+}
+.vditor .vditor-toolbar__item {
+  padding: 0 2px;
+}
+.vditor .vditor-toolbar__item > button {
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  border-radius: 4px;
+  line-height: 1;
+}
+.vditor .vditor-toolbar__item > button:hover {
+  background: var(--accent-soft, #e5eddc);
+}
+.vditor .vditor-toolbar__item input {
+  width: auto;
+  margin: 0;
+}
+.vditor .vditor-content {
+  min-height: 0;
+}
+.vditor .vditor-reset {
+  font-size: 15px;
+  line-height: 1.75;
+  padding: 24px !important;
+}
+.vditor .vditor-reset h1,
+.vditor .vditor-reset h2,
+.vditor .vditor-reset h3 {
+  letter-spacing: normal;
+}
+.vditor .vditor-reset h1 {
+  font-size: 2em;
+}
+.vditor .vditor-reset h2 {
+  font-size: 1.5em;
+}
+.vditor .vditor-reset a {
+  color: var(--accent, #7c2b22);
+}
+.vditor .vditor-reset th,
+.vditor .vditor-reset td {
+  padding: 8px 12px;
+  width: auto;
+  font-size: inherit;
+  letter-spacing: normal;
+}
+.vditor .vditor-reset pre {
+  white-space: pre-wrap;
+}
+.vditor .vditor-panel {
+  z-index: 20;
+}
+.vditor .vditor-panel input,
+.vditor .vditor-panel select {
+  padding: 6px;
+  width: auto;
+  font-size: 13px;
+}
+.vditor .vditor-panel button {
+  border: 0;
+  padding: 7px;
+}
+.vditor .vditor-counter {
+  font-size: 11px;
+  padding: 6px 12px;
+}
+.vditor .vditor-outline {
+  position: static;
+  width: 185px;
+  padding: 12px;
+  flex-shrink: 0;
+  font-size: 12px;
+  overflow: auto;
+}
+.vditor .vditor-outline ul {
+  padding-left: 15px;
+}
+.editor-tool-symbol {
+  display: inline-block;
+  font-size: 19px;
+  line-height: 16px;
+  width: 16px;
+  height: 16px;
+}
+.editor-workspace .metadata {
+  position: sticky;
+  top: 20px;
+}
+.editor-workspace .metadata p {
+  overflow-wrap: anywhere;
+}
+.editor-save-hint {
+  display: block;
+  font-size: 11px;
+  color: #85927a;
+  margin: 10px 0;
+}
+.editor-dialog {
+  padding: 24px;
+  border: 1px solid #dbe2d3;
+  border-radius: 12px;
+  max-width: min(1000px, calc(100vw - 32px));
+  width: 800px;
+  max-height: 85vh;
+  color: #263227;
+}
+.editor-dialog::backdrop {
+  background: #17221970;
+  backdrop-filter: blur(3px);
+}
+.editor-dialog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.editor-dialog-head h2 {
+  margin: 0;
+}
+.editor-dialog-head button {
+  padding: 5px 12px;
+  font-size: 22px;
+}
+.editor-library {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+.editor-library button {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  min-width: 0;
+  text-align: left;
+  padding: 10px;
+}
+.editor-library img {
+  width: 100%;
+  height: 100px;
+  object-fit: contain;
+  background: #f3f5ef;
+}
+.editor-library span {
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+}
+.editor-library small {
+  font-size: 10px;
+  color: #7b8a70;
+}
+.editor-publish-preview {
+  padding: 10px 20px;
+}
+.editor-publish-preview th,
+.editor-publish-preview td {
+  width: auto;
+}
+.vditor--fullscreen {
+  border-radius: 0 !important;
+}
+.vditor--fullscreen .vditor-toolbar {
+  border-radius: 0 !important;
+}
+.vditor--fullscreen .vditor-reset {
+  max-width: 1100px;
+  margin: auto;
+}
+.editor-workspace {
+  grid-template-columns: minmax(0, 1fr) 250px !important;
+  gap: 20px !important;
+}
+.editor-writing-panel > .title-input {
+  margin-bottom: 15px;
+}
+@media (max-width: 1100px) {
+  .editor-workspace {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .editor-workspace .metadata {
+    position: static;
+  }
+  .editor-writing-panel {
+    padding: 16px !important;
+  }
+}
+@media (max-width: 700px) {
+  .editor-caption {
+    flex-wrap: wrap;
+  }
+  .vditor .vditor-reset {
+    padding: 15px !important;
+    font-size: 15px;
+  }
+  .vditor .vditor-toolbar {
+    padding: 7px 4px !important;
+  }
+  .vditor .vditor-toolbar__item > button {
+    padding: 9px 7px;
+  }
+  .vditor .vditor-outline {
+    width: 130px;
+  }
+  .editor-dialog {
+    padding: 17px;
+  }
+  .editor-publish-preview {
+    padding: 0;
+  }
+  .editor-writing-panel {
+    padding: 12px !important;
+  }
+  .vditor .vditor-panel {
+    max-width: calc(100vw - 50px);
+  }
+  .vditor .vditor-panel input {
+    max-width: 65vw;
+  }
+}
+
+@media (max-width: 700px) {
+  .vditor .vditor-content {
+    flex-direction: column;
+  }
+  .vditor .vditor-sv,
+  .vditor .vditor-preview {
+    flex: 1 1 0;
+    min-height: 0;
+    width: 100%;
+    max-width: none;
+  }
+  .vditor .vditor-preview {
+    border-left: 0;
+    border-top: 1px solid var(--border-color);
+  }
+  .vditor .vditor-outline {
+    width: 100%;
+    max-height: 120px;
+  }
+}
+/* Allow the scrollable editor pane to shrink inside a vertical mobile layout. */
+.vditor .vditor-wysiwyg,
+.vditor .vditor-ir {
+  min-height: 0;
+}
+
+/* Compact writing page: one title/action row above the editor toolbar. */
+main.article-page {
+  margin: 0;
+  padding: 8px 12px 12px;
+  max-width: none;
+  height: 100dvh;
+  min-height: 420px;
+}
+.article-page #content {
+  height: 100%;
+}
+.article-page #editor {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 0;
+}
+.article-page .article-page-toolbar {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
+  margin: 0;
+  gap: 10px;
+}
+.article-page-toolbar > .title-input {
+  flex: 1;
+  min-width: 0;
+  width: auto;
+  margin: 0;
+  padding: 6px 8px;
+  height: 38px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  background: transparent;
+}
+.article-page-toolbar > .title-input:hover {
+  background: #fff;
+}
+.article-page-toolbar > .title-input:focus {
+  background: #fff;
+  border-color: #839f58;
+}
+.article-page-toolbar > #article-identity {
+  display: none;
+}
+.article-page-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.article-page-toolbar button {
+  padding: 7px 12px;
+  white-space: nowrap;
+}
+.article-page #save-status {
+  font-size: 12px;
+  color: #64745b;
+  max-width: 230px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.article-page .editor-workspace {
+  flex: 1;
+  min-height: 0;
+  grid-template-columns: minmax(0, 1fr) !important;
+}
+.article-page .editor-workspace.settings-open {
+  grid-template-columns: minmax(0, 1fr) 260px !important;
+}
+.article-page .editor-writing-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  margin: 0;
+  padding: 0 !important;
+  border: 0;
+  background: transparent;
+}
+.article-page #rich-editor {
+  flex: 1;
+  min-height: 0;
+}
+.article-page .vditor .vditor-toolbar {
+  padding: 5px 8px !important;
+}
+.article-page .metadata {
+  position: static;
+  max-height: 100%;
+  overflow: auto;
+  margin: 0;
+}
+.article-page .metadata[hidden] {
+  display: none;
+}
+@media (max-width: 1000px) {
+  .article-page #save-status {
+    max-width: 100px;
+  }
+}
+@media (max-width: 700px) {
+  main.article-page {
+    padding: 6px;
+    min-height: 540px;
+  }
+  .article-page .article-page-toolbar {
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 4px 6px;
+  }
+  .article-page-toolbar > .title-input {
+    width: 100%;
+    font-size: 16px;
+  }
+  .article-page-actions {
+    grid-column: 1 / -1;
+    justify-content: flex-end;
+  }
+  .article-page #save-status {
+    margin-right: auto;
+    max-width: 130px;
+  }
+  .article-page .editor-workspace.settings-open {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-rows: minmax(380px, 1fr) auto;
+    min-height: 100%;
+  }
+  .article-page .editor-workspace.settings-open #rich-editor {
+    min-height: 450px;
+  }
+}
+
+/* A colored, non-interactive mirror aligned with the native source textarea. */
+.vditor .vditor-content {
+  position: relative;
+}
+.vditor .vditor-sv {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, MiSans, monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  tab-size: 4;
+}
+.vditor .source-highlight-input,
+.vditor .source-highlight-input:focus {
+  position: relative;
+  z-index: 1;
+  color: transparent;
+  background: transparent;
+  caret-color: #263227;
+}
+.vditor .source-highlight-input::selection {
+  background: #9fc9e766;
+}
+.source-highlight {
+  position: absolute;
+  pointer-events: none;
+  overflow: hidden;
+  background: #fff;
+  color: #33433b;
+}
+.source-highlight pre {
+  margin: 0;
+  border: 0;
+  white-space: pre-wrap;
+  font-weight: 400;
+  font-variant-ligatures: no-common-ligatures;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+.source-highlight .hljs-section {
+  color: #255a99;
+  font-weight: 600;
+}
+.source-highlight .hljs-quote {
+  color: #68775c;
+}
+.source-highlight .hljs-bullet {
+  color: #925723;
+}
+.source-highlight .hljs-strong {
+  color: #285e49;
+  font-weight: 600;
+}
+.source-highlight .hljs-emphasis {
+  color: #805095;
+  font-style: italic;
+}
+.source-highlight .hljs-code {
+  color: #925329;
+}
+.source-highlight .hljs-link,
+.source-highlight .hljs-string {
+  color: #326f87;
+}
+.source-highlight .hljs-symbol,
+.source-highlight .hljs-meta {
+  color: #805095;
+}
+.source-highlight .hljs-tag,
+.source-highlight .hljs-comment {
+  color: #737a85;
+}
+@media (forced-colors: active) {
+  .vditor .source-highlight-input {
+    color: CanvasText;
+    caret-color: CanvasText;
+  }
+  .source-highlight {
+    display: none;
+  }
+}

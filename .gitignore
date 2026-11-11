@@ -1,0 +1,47 @@
+# OS and editor files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+node_modules/
+backups/
+dist/
+.tools/
+*.mp4
+*.blend1
+optix7cache.db
+reference/*.jpg
+reference/**/*.jpg
+art/.cache/
+.worktrees/
+release/
+video/
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+
+# Original VanBlog backup contains account credentials.
+blog_data/
+vanblog/
+content/local/
+public/posts/
+public/blog-images/
+src/generated/
+output/
+.playwright-cli/
+
+# Admin credentials, analytics, trash and staging builds
+.junction/
+
+# Generated local editor runtime
+public/vendor/vditor/
